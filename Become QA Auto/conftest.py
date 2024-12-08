@@ -34,3 +34,8 @@ def github_api():
 def github_commit():
     commit1=GitHub()
     yield commit1
+
+@pytest.fixture
+def github_topic():
+    topic1=GitHub()
+    yield topic1

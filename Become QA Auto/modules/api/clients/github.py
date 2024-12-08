@@ -22,3 +22,9 @@ class GitHub:
         body=r.json()
 
         return body
+    
+    def get_topic(self, topic):
+        r=requests.get(f"https://api.github.com/search/topics?q={topic}")
+        body=r.json()
+
+        return body

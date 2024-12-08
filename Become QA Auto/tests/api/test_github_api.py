@@ -41,3 +41,14 @@ def test_commit_exist(github_commit):
 def test_commit_not_exist(github_commit):
     r=github_commit.get_commit('kjfgkfjgflk454844')
     assert r['total_count']==0
+
+@pytest.mark.topic
+def test_topic_exist(github_topic):
+    r=github_topic.get_topic('QA')
+    assert r['total_count']==386
+
+    
+@pytest.mark.topic
+def test_topic_not_exist(github_topic):
+    r=github_topic.get_topic('this topic not exist')
+    assert r['total_count']==0
