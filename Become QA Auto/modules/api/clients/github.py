@@ -16,3 +16,9 @@ class GitHub:
         body=r.json()
 
         return body
+    
+    def get_commit(self,commit):
+        r=requests.get(f'https://api.github.com/search/commits?q={commit}')
+        body=r.json()
+
+        return body

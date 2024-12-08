@@ -28,3 +28,9 @@ def user():
 def github_api():
     api=GitHub()
     yield api
+
+
+@pytest.fixture
+def github_commit():
+    commit1=GitHub()
+    yield commit1
