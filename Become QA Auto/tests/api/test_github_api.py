@@ -35,11 +35,11 @@ def test_repo_with_single_char_be_found(github_api):
 @pytest.mark.commit
 def test_commit_exist(github_commit):
     commit=github_commit.get_commit('knife')
-    assert commit['total_count']==275362
+    assert commit['total_count']==275400
 
 @pytest.mark.commit
 def test_commit_not_exist(github_commit):
-    r=github_commit.get_commit('kjfgkfjgflk454844')
+    r=github_commit.get_commit('this commit not exist and it is true474512')
     assert r['total_count']==0
 
 @pytest.mark.topic
