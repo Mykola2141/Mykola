@@ -37,7 +37,7 @@ class Database():
         return record
     
     def insert_product(self,product_id, name,description, qnt):
-        query= f"INSERT INTO products (id, name, description, quantity) \
+        query= f"INSERT OR REPLACE INTO products (id, name, description, quantity) \
             VALUES ({product_id}, '{name}', '{description}', {qnt})"
         self.cursor.execute(query)
         self.connection.commit
