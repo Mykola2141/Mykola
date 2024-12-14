@@ -36,7 +36,7 @@ class Database():
         record=self.cursor.fetchall()
         return record
     
-    def insert_product(self,product_id, name,description, qnt):
+    def insert_product(self, product_id, name, description, qnt):
         query= f"INSERT OR REPLACE INTO products (id, name, description, quantity) \
             VALUES ({product_id}, '{name}', '{description}', {qnt})"
         self.cursor.execute(query)
