@@ -12,3 +12,50 @@ class Database():
         self.cursor.execute(sqlite_select_Query)
         record=self.cursor.fetchall()
         print(f"Connected succefully. SQLite Database Version is: {record}")
+
+    def get_all_users(self):
+        query="SELECT name, address, city FROM customers"
+        self.cursor.execute(query)
+        record = self.cursor.fetchall()
+        return record
+    
+    def get_user_address_by_name(self, name):
+        query = f"SELECT address, city, postalCode, country FROM customers WHERE name = '{name}'"
+        self.cursor.execute(query)
+        record = self.cursor.fetchall()
+        return record
+    
+    def update_product_qnt_by_id(self, product_id, qnt):
+        query = f"UPDATE products SET quantity = {qnt} WHERE id = {product_id}"
+        self.cursor.execute(query)
+        self.connection.commit()
+
+    def select_product_qnt_by_id(self, product_id):
+        query = f"SELECT quantity FROM products WHERE id = {product_id}"
+        self.cursor.execute(query)
+        record = self.cursor.fetchall()
+        return record
+    
+    def insert_product(self, product_id, name, description, qnt):
+        query = f"INSERT INTO products (id, name, description, quantity) \
+            VALUES ({product_id}, '{name}', '{description}', {qnt});"
+        self.cursor.execute(query)
+        self.connection.commit
+
+    def get_info_from_database(self):
+        query = f"SELECT name FROM sqlite_master WHERE type='table';"
+        self.cursor.execute(query)
+        record= self.cursor.fetchall()
+        return [table[0] for table in record]
+    
+    def get_info_from_table(self,table_name):
+        query = f"SELECT * FROM '{table_name}'"
+        self.cursor.execute(query)
+        record = self.cursor.fetchall()
+        return record
+    
+    def get_info_from_column(self,table_name):
+        query= f"PRAGMA table_info('{table_name}')"
+        self.cursor.execute(query)
+        record = self.cursor.fetchall()
+        return record
