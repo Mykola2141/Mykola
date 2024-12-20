@@ -39,10 +39,10 @@ def test_product_qnt_update():
 @pytest.mark.database
 def test_product_insert():
     db = Database()
-    db.insert_product(4, 'печиво', 'солодке', 30)
-    water_qnt = db.select_product_qnt_by_id(4)
+    db.insert_product(5, 'печиво', 'солоне', 45)
+    water_qnt = db.select_product_qnt_by_id(5)
 
-    assert water_qnt[0][0] == 30
+    assert water_qnt[0][0] == 45
 
 
 @pytest.mark.database
