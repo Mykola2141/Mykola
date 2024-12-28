@@ -34,8 +34,8 @@ def test_repo_with_single_char_be_found(github_api):
 
 @pytest.mark.commit
 def test_commit_exist(github_commit):
-    commit=github_commit.get_commit('Spoon Knife css')
-    assert commit['total_count']==28
+    r=github_commit.get_commit('Spoon Knife css')
+    assert r['total_count']==28
 
 @pytest.mark.commit
 def test_commit_not_exist(github_commit):
@@ -44,8 +44,8 @@ def test_commit_not_exist(github_commit):
 
 @pytest.mark.topic
 def test_topic_exist(github_topic):
-    r=github_topic.get_topic('QA')
-    assert r['total_count']==386
+    r=github_topic.get_topic('QA Auto')
+    assert r['total_count']==6
 
     
 @pytest.mark.topic
