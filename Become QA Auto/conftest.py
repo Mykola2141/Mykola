@@ -1,5 +1,7 @@
 import pytest
 from modules.api.clients.github import GitHub
+from modules.common.database import Database
+
 
 class User:
     def __init__(self) ->None:
@@ -32,10 +34,16 @@ def github_api():
 
 @pytest.fixture
 def github_commit():
-    commit1=GitHub()
-    yield commit1
+    api=GitHub()
+    yield api
 
 @pytest.fixture
 def github_topic():
-    topic1=GitHub()
-    yield topic1
+    api=GitHub()
+    yield api
+
+@pytest.fixture
+def database():
+    database= Database()
+    yield database
+    

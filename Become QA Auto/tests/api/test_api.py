@@ -7,7 +7,7 @@ def test_remove_name(user):
 
 @pytest.mark.check
 def test_name(user):
-    assert user.name== 'Mykola'
+    assert user.name=='Mykola'
 
 @pytest.mark.check
 def test_second_name(user):
