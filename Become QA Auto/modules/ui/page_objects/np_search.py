@@ -9,9 +9,14 @@ class NPSearch(BasePage):
         super().__init__()
 
     def go_to(self):
+        self.driver.set_window_size(1920, 1080)
         self.driver.get(NPSearch.URL)
 
     def try_find_cargo(self, searching_cargo_number):
+        #Закриваємо спливаюче вікно,це святкова інсталяція після свят це можна прибрати
+        find_h_btn = self.driver.find_element(By.XPATH, '/html/body/div[1]/div[3]/div[5]/div[1]/i')
+        find_h_btn.click()
+
         #Знаходимо поле для пошуку накладної на вантаж
         find_cargo=self.driver.find_element(By.ID, "cargo_number")
 
