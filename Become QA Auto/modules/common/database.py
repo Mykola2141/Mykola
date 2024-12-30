@@ -3,8 +3,8 @@ import sqlite3
 
 class Database():
     def __init__(self):
-        self.connection=sqlite3.connect(r'C:\\Users\\ACER\\Githubproject\\Mykola\\Become QA Auto' + r'\\become_qa_auto.db')
-        self.cursor=self.connection.cursor()
+        self.connection = sqlite3.connect(r'C:\\Users\\ACER\\Githubproject\\Mykola\\Become QA Auto' + r'\\become_qa_auto.db')
+        self.cursor = self.connection.cursor()
 
             
     def test_connection(self):
@@ -61,7 +61,7 @@ class Database():
     def get_info_from_database(self):
         query = f"SELECT name FROM sqlite_master WHERE type='table';"
         self.cursor.execute(query)
-        record= self.cursor.fetchall()
+        record = self.cursor.fetchall()
         return [table[0] for table in record]
     
     def get_info_from_table(self,table_name):
@@ -71,7 +71,7 @@ class Database():
         return record
     
     def get_info_from_column(self,table_name):
-        query= f"PRAGMA table_info('{table_name}')"
+        query = f"PRAGMA table_info('{table_name}')"
         self.cursor.execute(query)
         record = self.cursor.fetchall()
         return record

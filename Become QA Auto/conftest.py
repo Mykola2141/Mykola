@@ -5,21 +5,21 @@ from modules.ui.page_objects.base_page import BasePage
 
 
 class User:
-    def __init__(self) ->None:
-        self.name=None
-        self.second_name=None
+    def __init__(self) -> None:
+        self.name = None
+        self.second_name = None
 
     def create(self):
-        self.name='Mykola'
-        self.second_name='Krjuchek'
+        self.name = 'Mykola'
+        self.second_name = 'Krjuchek'
 
     def remove(self):
-        self.name=''
-        self.second_name=''
+        self.name = ''
+        self.second_name = ''
 
 @pytest.fixture
 def user():
-    user=User()
+    user = User()
     user.create()
 
     yield user
@@ -29,23 +29,23 @@ def user():
 
 @pytest.fixture
 def github_api():
-    api=GitHub()
+    api = GitHub()
     yield api
 
 
 @pytest.fixture
 def github_commit():
-    api=GitHub()
+    api = GitHub()
     yield api
 
 @pytest.fixture
 def github_topic():
-    api=GitHub()
+    api = GitHub()
     yield api
 
 @pytest.fixture
 def database():
-    database= Database()
+    database = Database()
     yield database
     
 @pytest.fixture

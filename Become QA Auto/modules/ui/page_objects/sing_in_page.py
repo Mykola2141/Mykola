@@ -13,22 +13,22 @@ class SignInPage(BasePage):
 
     def try_login(self, username, password):
         #Знаходимо поле,в яке будемо вводити неправильне ім1я користувача або поштову адресу
-        login_elem=self.driver.find_element(By.ID, "login_field")
+        login_elem = self.driver.find_element(By.ID, "login_field")
 
         #Вводимо неправильне ім'я користувача або поштову адресу
         login_elem.send_keys(username)
 
         #Знаходимо поле,в яке будемо вводити неправильний пароль
-        pass_elem=self.driver.find_element(By.ID, "password")
+        pass_elem = self.driver.find_element(By.ID, "password")
 
         #Вводимо неправильний пароль
         pass_elem.send_keys(password)
 
         #Знаходимо кнопку sign in
-        btn_elem=self.driver.find_element(By.NAME, "commit")
+        btn_elem = self.driver.find_element(By.NAME, "commit")
 
         #Емулюємо клік дівою кнопкою мишки
         btn_elem.click()
 
     def check_title(self, expected_title):
-        return self.driver.title==expected_title 
+        return self.driver.title == expected_title 

@@ -30,4 +30,4 @@ class XboxCheck(BasePage):
         call_to_action.click()
 
     def check_title(self, expected_title):
-        return self.driver.title==expected_title
+        return self.driver.title == expected_title

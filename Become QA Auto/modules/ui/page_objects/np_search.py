@@ -18,17 +18,17 @@ class NPSearch(BasePage):
         find_h_btn.click()
 
         #Знаходимо поле для пошуку накладної на вантаж
-        find_cargo=self.driver.find_element(By.ID, "cargo_number")
+        find_cargo = self.driver.find_element(By.ID, "cargo_number")
 
         #вводимо номер накладної в поле пошуку "1234567891011"
         find_cargo.send_keys(searching_cargo_number)
 
         #знаходимо кнопку "відстежити"
-        btn_element=self.driver.find_element(By.XPATH, "/html/body/div[1]/div[4]/div[1]/div[1]/div/div[2]/form/input[2]")
+        btn_element = self.driver.find_element(By.XPATH, "/html/body/div[1]/div[4]/div[1]/div[1]/div/div[2]/form/input[2]")
 
         #емулюємо клік лівою кнопкою мишки
         btn_element.click()
 
     #перевіряємо очікуваний заголовок сторінки "novaposhta.ua"
     def check_title(self, expected_title):
-        return self.driver.title==expected_title
+        return self.driver.title == expected_title

@@ -65,17 +65,17 @@ def test_detailed_orders(database):
     
 @pytest.mark.database_info
 def test_get_info(database):
-    database=database.get_info_from_database()
+    database = database.get_info_from_database()
     print (database)
 
 @pytest.mark.database_info
 def test_get_info_from_table(database):
-    table=database.get_info_from_table('products')
+    table = database.get_info_from_table('products')
     print (table)
 
 @pytest.mark.database_info
 def test_get_info_from_column(database):
-    column=database.get_info_from_column('products')
+    column = database.get_info_from_column('products')
     print(column)
 
 
