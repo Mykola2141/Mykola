@@ -1,6 +1,7 @@
 import pytest
 from modules.api.clients.github import GitHub
 from modules.common.database import Database
+from modules.ui.page_objects.base_page import BasePage
 
 
 class User:
@@ -47,3 +48,9 @@ def database():
     database= Database()
     yield database
     
+@pytest.fixture
+def page_object():
+    page_object = BasePage()
+    yield page_object
+
+    page_object.close()

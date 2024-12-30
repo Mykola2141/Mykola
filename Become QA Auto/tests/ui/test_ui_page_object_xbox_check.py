@@ -1,13 +1,11 @@
-from modules.ui.page_objects.check_requirements_for_xbox import XboxCheck
 import pytest
 
 
 @pytest.mark.xbox_check
-def test_for_check_xbox_requirements():
-    xbox_sys_req = XboxCheck()
-    xbox_sys_req.go_to()
-    xbox_sys_req.find_xbox_menu()
-    xbox_sys_req.see_more()
-    xbox_sys_req.system_requirements()
-    xbox_sys_req.join_now()
-    xbox_sys_req.check_title('Придбати PC Game Pass — 14-денне ознайомлення пропонується щомісяця | Xbox')
+def test_for_check_xbox_requirements(page_object):
+    page_object.go_to()
+    page_object.find_xbox_menu()
+    page_object.see_more()
+    page_object.system_requirements()
+    page_object.join_now()
+    assert page_object.check_title('Придбати PC Game Pass — 14-денне ознайомлення пропонується щомісяця | Xbox')
