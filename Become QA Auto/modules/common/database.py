@@ -76,4 +76,11 @@ class Database():
         record = self.cursor.fetchall()
         return record
     
+    def get_orders_with_customer_name(self):
+        query = f"SELECT orders.id, customers.name, orders.order_date \
+                FROM orders \
+                INNER JOIN customers ON orders.customer_id = customers.id"
+        self.cursor.execute(query)
+        record = self.cursor.fetchall()
+        return record
     

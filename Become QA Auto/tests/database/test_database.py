@@ -1,5 +1,4 @@
 import pytest
-from modules.common.database import Database
 
 
 @pytest.mark.database
@@ -64,18 +63,29 @@ def test_detailed_orders(database):
 
     
 @pytest.mark.database_info
-def test_get_info(database):
+def test_get_info_from_database(database):
     database = database.get_info_from_database()
-    print (database)
+    assert isinstance(database, list)
 
 @pytest.mark.database_info
 def test_get_info_from_table(database):
-    table = database.get_info_from_table('products')
-    print (table)
+    table_data = database.get_info_from_table('products')
+    assert isinstance(table_data, list)
 
 @pytest.mark.database_info
 def test_get_info_from_column(database):
-    column = database.get_info_from_column('products')
-    print(column)
+    columns = database.get_info_from_column('products')
+    assert isinstance(columns, list)
+
+@pytest.mark.database_info
+def test_select_product_qnt_by_id_not_exist(database):
+    product_qnt = database.select_product_qnt_by_id(100)
+    assert product_qnt is None or len(product_qnt) == 0
+
+@pytest.mark.database_info
+def test_get_orders_with_customer_name(database):
+    orders = database.get_orders_with_customer_name()
+    assert isinstance (orders, list)
+    assert len(orders) >= 0
 
 
