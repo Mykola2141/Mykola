@@ -7,7 +7,7 @@ def test_check_find_office_address(page_object):
     #відкриваємо сторінку 'https://novaposhta.ua'
     page_object.go_to()
 
-    #виконуємо спробу увійти в систему Github
+    #шукаємо поле пошуку і вводимо номер накладної
     page_object.try_find_cargo("59001227272105")
 
     #первіряємо, що назва сторінки така,яку ми очікуємо

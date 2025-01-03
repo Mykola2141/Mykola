@@ -1,8 +1,8 @@
 import pytest
 from modules.api.clients.github import GitHub
 from modules.common.database import Database
-from modules.ui.page_objects.base_page import BasePage
-
+from modules.ui.page_objects.np_search import NPSearch
+from modules.ui.page_objects.check_requirements_for_xbox import XboxCheck
 
 class User:
     def __init__(self) -> None:
@@ -55,7 +55,14 @@ def database():
     
 @pytest.fixture
 def page_object():
-    page_object = BasePage()
+    page_object = NPSearch()
     yield page_object
 
     page_object.close()
+
+@pytest.fixture
+def page_object_for_x_box():
+    page_object_for_x_box = XboxCheck()
+    yield page_object_for_x_box
+
+    page_object_for_x_box.close()
