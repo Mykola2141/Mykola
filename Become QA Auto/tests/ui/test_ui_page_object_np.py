@@ -1,5 +1,4 @@
 import pytest
-from modules.ui.page_objects.np_search import NPSearch
 
 
 
