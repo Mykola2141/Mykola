@@ -44,6 +44,11 @@ def github_topic():
     yield api
 
 @pytest.fixture
+def github_emoji():
+    api = GitHub()
+    yield api
+    
+@pytest.fixture
 def database():
     database = Database()
     yield database

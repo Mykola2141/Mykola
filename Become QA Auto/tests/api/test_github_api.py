@@ -48,3 +48,13 @@ def test_topic_not_exist(github_topic):
     r = github_topic.get_topic('this topic not exist')
     assert r['total_count'] == 0
 
+@pytest.mark.emoji
+def test_get_emoji(github_emoji):
+    r = github_emoji.get_emoji()
+    assert "+1" in r
+
+@pytest.mark.emoji
+def test_get_emoji_not_exist(github_emoji):
+    r = github_emoji.get_emoji()
+    assert "this emoji not exist" not in r
+
