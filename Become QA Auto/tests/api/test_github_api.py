@@ -29,32 +29,32 @@ def test_repo_with_single_char_be_found(github_api):
     assert r['total_count'] != 0
 
 @pytest.mark.commit
-def test_commit_exist(github_commit):
-    r = github_commit.get_commit('Spoon Knife css')
-    assert r['total_count'] == 28
+def test_commit_exist(github_api):
+    r = github_api.get_commit('Spoon Knife css')
+    assert r['total_count'] == 29
 
 @pytest.mark.commit
-def test_commit_not_exist(github_commit):
-    r = github_commit.get_commit('this commit not exist and it is true474512')
+def test_commit_not_exist(github_api):
+    r = github_api.get_commit('this commit not exist and it is true474512')
     assert r['total_count'] == 0
 
 @pytest.mark.topic
-def test_topic_exist(github_topic):
-    r = github_topic.get_topic('QA Auto')
+def test_topic_exist(github_api):
+    r = github_api.get_topic('QA Auto')
     assert r['total_count'] == 6
    
 @pytest.mark.topic
-def test_topic_not_exist(github_topic):
-    r = github_topic.get_topic('this topic not exist')
+def test_topic_not_exist(github_api):
+    r = github_api.get_topic('this topic not exist')
     assert r['total_count'] == 0
 
 @pytest.mark.emoji
-def test_get_emoji(github_emoji):
-    r = github_emoji.get_emoji()
+def test_get_emoji(github_api):
+    r = github_api.get_emoji()
     assert "+1" in r
 
 @pytest.mark.emoji
-def test_get_emoji_not_exist(github_emoji):
-    r = github_emoji.get_emoji()
+def test_get_emoji_not_exist(github_api):
+    r = github_api.get_emoji()
     assert "this emoji not exist" not in r
 

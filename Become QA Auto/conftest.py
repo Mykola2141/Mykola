@@ -32,22 +32,6 @@ def github_api():
     api = GitHub()
     yield api
 
-
-@pytest.fixture
-def github_commit():
-    api = GitHub()
-    yield api
-
-@pytest.fixture
-def github_topic():
-    api = GitHub()
-    yield api
-
-@pytest.fixture
-def github_emoji():
-    api = GitHub()
-    yield api
-    
 @pytest.fixture
 def database():
     database = Database()
